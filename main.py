@@ -50,6 +50,7 @@ def default(res):
 def greeting(res):
     if state["name"] == "":
         print("Hello! What is your name?")
+        state["bot"]["topic"] = "asking_name"
     else:
         print(res + " " + state["name"] + "!")
 
