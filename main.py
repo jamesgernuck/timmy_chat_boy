@@ -48,10 +48,10 @@ def default(res):
     print(res)
     
 def greeting(res):
-    if state.name == "":
+    if state["name"] == "":
         print("Hello! What is your name?")
     else:
-        print(res + " " + state.name + "!")
+        print(res + " " + state["name"] + "!")
 
 def predict_class(sentence, model):
     # filter out predictions below a threshold
