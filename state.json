@@ -1,5 +1,9 @@
 {
     "name": "billy",
-    "age": 30,
-    "car": null
+    "bot": 
+    {
+       "topic": "init",
+        "mood": "fine"
+        
+    }
 }
