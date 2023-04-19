@@ -66,7 +66,7 @@ def chatbot_response(msg):
 
 def send():
     msg = input("YOU:")
-    return chatbot_response(msg)
+    print (chatbot_response(msg))
 
 for i in range(14):
     send()
