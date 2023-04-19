@@ -16,7 +16,16 @@ words = pickle.load(open('words.pkl', 'rb'))
 classes = pickle.load(open('classes.pkl', 'rb'))
 with open('state.json', 'r') as openfile:
     state = json.load(openfile)
-print(state)
+
+print(state["name"])
+state["name"] = "billy"
+
+json_object = json.dumps(state, indent=4)
+ 
+with open("state.json", "w") as outfile:
+    outfile.write(json_object)
+    
+print(state["name"])
 
 def clean_up_sentence(sentence):
     sentence_words = nltk.word_tokenize(sentence)
