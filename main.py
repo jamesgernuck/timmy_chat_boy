@@ -44,6 +44,9 @@ def bow(sentence, words, show_details=True):
                     print ("found in bag: %s" % w)
     return(np.array(bag))
 
+def default(res):
+    print(res)
+    
 def predict_class(sentence, model):
     # filter out predictions below a threshold
     p = bow(sentence, words,show_details=False)
@@ -63,17 +66,14 @@ def getResponse(ints, intents_json):
     for i in list_of_intents:
         if(i['tag']== tag):
             result = random.choice(i['responses'])
+            ctx = globals()[i['context'][0]]
+            ctx(result)
             break
-    return result
 
-def chatbot_response(msg):
-    ints = predict_class(msg, model)
-    res = getResponse(ints, intents)
-    return res
-
-def send():
+def chatbot_response():
     msg = input("YOU:")
-    print (chatbot_response(msg))
+    ints = predict_class(msg, model)
+    getResponse(ints, intents)
 
 for i in range(14):
-    send()
+    chatbot_response()
