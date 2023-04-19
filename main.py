@@ -47,6 +47,12 @@ def bow(sentence, words, show_details=True):
 def default(res):
     print(res)
     
+def greeting(res):
+    if state.name == "":
+        print("Hello! What is your name?")
+    else:
+        print(res + " " + state.name + "!")
+
 def predict_class(sentence, model):
     # filter out predictions below a threshold
     p = bow(sentence, words,show_details=False)

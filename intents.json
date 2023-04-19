@@ -1,8 +1,8 @@
 {"intents": [
         {"tag": "greeting",
          "patterns": ["Hi there", "How are you", "Is anyone there?","Hey","Hola", "Hello", "Good day"],
-         "responses": ["Hello, thanks for asking", "Good to see you again", "Hi there, how can I help?"],
-         "context": ["default"]
+         "responses": ["Hello", "Good to see you again", "Hi there"],
+         "context": ["greeting"]
         },
         {"tag": "goodbye",
          "patterns": ["Bye", "See you later", "Goodbye", "Nice chatting to you, bye", "Till next time"],
@@ -15,7 +15,7 @@
          "context": ["default"]
         },
         {"tag": "noanswer",
-         "patterns": [],
+         "patterns": [""," ","  "],
          "responses": ["Sorry, can't understand you", "Please give me more info", "Not sure I understand"],
          "context": ["default"]
         },
