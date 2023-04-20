@@ -1,9 +1,7 @@
 {
-    "name": "",
-    "bot": 
-    {
-       "topic": "init",
+    "name": "billy",
+    "bot": {
+        "topic": "idle",
         "mood": "fine"
-        
     }
 }

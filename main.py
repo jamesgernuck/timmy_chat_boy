@@ -53,6 +53,16 @@ def greeting(res):
         state["bot"]["topic"] = "asking_name"
     else:
         print(res + " " + state["name"] + "!")
+        
+def name(res):
+    if state["name"] == "" and state["bot"]["topic"] == "asking_name":
+        state["name"] = msg
+        print(msg)
+        print("Hello NAME " + state["name"] + "!")
+        state["bot"]["topic"] = "idle"
+    elif state["name"] == "":
+        print("are you " + msg + "?")
+
 
 def predict_class(sentence, model):
     # filter out predictions below a threshold
@@ -67,20 +77,25 @@ def predict_class(sentence, model):
         return_list.append({"intent": classes[r[0]], "probability": str(r[1])})
     return return_list
 
+
 def getResponse(ints, intents_json):
     tag = ints[0]['intent']
     list_of_intents = intents_json['intents']
     for i in list_of_intents:
-        if(i['tag']== tag):
+        if (i['tag'] == tag):
             result = random.choice(i['responses'])
             ctx = globals()[i['context'][0]]
             ctx(result)
             break
 
+
 def chatbot_response():
+    global msg
     msg = input("YOU:")
     ints = predict_class(msg, model)
     getResponse(ints, intents)
 
+
 for i in range(14):
     chatbot_response()
+    save_state()
