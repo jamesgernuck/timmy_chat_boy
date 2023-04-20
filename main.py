@@ -62,6 +62,8 @@ def name(res):
         state["bot"]["topic"] = "idle"
     elif state["name"] == "":
         print("are you " + msg + "?")
+    else:
+        print("Who is " + msg)
 
 
 def predict_class(sentence, model):
